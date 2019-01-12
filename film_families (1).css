@@ -1,0 +1,206 @@
+:root {
+  box-sizing: border-box;
+  font-size: 1em;
+}
+
+html, body {
+  margin: 0;
+  position: fixed;
+}
+
+*, ::before, ::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  color: rgb(4, 124, 104);
+  width: 100vw;
+  height: 100vh;
+}
+
+.nav {
+  padding: .1rem 1.5rem 0 1.5rem;
+}
+
+.nav-links {
+  display:flex;
+  justify-content: flex-end;
+}
+.nav-links > li {
+  padding: .5rem;
+  list-style-type: none;
+}
+
+.nav-links > li + li {
+  margin-left: 1rem;
+}
+
+.nav-links > li > a {
+  text-decoration: none;
+  color: rgb(4, 124, 104);
+  padding: 1rem;
+  position: relative;
+}
+
+.active {
+  font-weight: bold;
+} 
+
+@media (min-width: 800px) {
+  .nav-links > li > a:after {
+    background-color: rgb(201, 15, 93);
+    height: 2px;
+    content: " ";
+    width: 0;
+    position: absolute; 
+    bottom: 0;
+    right: 0;
+  }
+
+  .nav-links > li > a:hover:after {
+    width: 100%;
+    transition: .35s ease-out;
+  }
+}
+
+main {
+  display: grid;
+  grid-template-columns: 2fr 5fr 2fr;
+  height: calc(100vh - 4.5rem - 1.4rem); /* minus header and footer height, respectively */
+}
+
+#left, #right {
+  padding: 0.5rem 0.75rem;
+  border-bottom: none;
+  color: rgb(66, 66, 66);
+}
+
+#left {
+  grid-column: 1;
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#right {
+  grid-column: 3;
+  height: inherit;
+}
+
+#viz-box {
+  grid-column: 2;
+  height: inherit;
+  min-width: 0;
+  min-height: 0;
+}
+
+svg {
+  height: 100%;
+  width: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+footer {
+  display: block;
+  background-color: rgb(4, 124, 104);
+  color: white;
+  padding: 0.2rem 1rem 1rem;
+  text-align: center;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer p, footer a {
+  margin: 0;
+}
+
+@media (max-width: 500px) {
+  html, body {
+    position: initial;
+    height: initial;
+  }
+  main {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto auto auto;
+    height: initial;
+  }
+  #left, #viz-box {
+    width: 100%;
+    text-align: center;
+    height: initial;
+  }
+  #left {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  #viz-box {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  #right {
+    grid-row: 3;
+    grid-column: 1;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+  }
+  svg {
+    height: initial;
+  }
+  #infobox, #right h2 {
+    display: none;
+  }
+}
+
+/* above is page layout and site-wide styling, below is the styling of page-specific elements */
+
+h1 {
+  margin-left: 1rem;
+  font-size: 7vh;
+}
+
+h2 {
+  text-align: left;
+  font-style: italic;
+}
+
+.link {
+  opacity: 0.4;
+  stroke-width: 1;
+}
+
+svg text {
+  fill: rgba(66, 66, 66, 0.25);
+}
+
+#date-slider {
+  width: 95%;
+  max-width: 20em;
+  margin-bottom: 1rem;
+}
+
+#legend {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+h3 {
+  text-align: left;
+  margin: 2rem 2rem 0.5rem;
+}
+
+#infobox {
+  margin-left: 1rem;
+  margin-bottom: 4.5rem;
+}
+
+#left span {
+  font-weight: bold;
+}

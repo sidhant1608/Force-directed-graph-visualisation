@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ICIC Dynasties Project</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="The ICIC Dynasties Project provides users with an interactive visualization of Hindi film family networks. This is our prototype page.">
+    <meta name="twitter:title" content="ICIC Dynasties Project">
+    <meta property="og:description" content="The ICIC Dynasties Project provides users with an interactive visualization of Hindi film family networks. This is our prototype page.">
+    <meta property="og:title" content="ICIC Dynasties Project">
+    <meta property="og:image" content=""> 
+    <meta name="author" content="Matthew Nelson">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,300b,300i" rel="stylesheet">
+    <link rel="stylesheet" href="film_families.css">
+    <script src="https://d3js.org/d3.v5.min.js" type="text/JavaScript" defer></script>
+    <script src="film_families.js" type="text/JavaScript" defer></script>
+  </head>
+  <body>
+    <div class="nav">
+        <ul class="nav-links">
+          <li><a href="../people.html">people</a></li>
+          <li><a href="../projects.html" class="active">projects</a></li>
+          <li><a href="../index.html">home</a></li>
+        </ul>
+    </div>
+    <main>
+      <div id="left">
+        <h1>Hindi Film Families</h2>
+        <div id="infobox"></div>
+      </div>
+      <div id="viz-box">
+        <svg viewBox="0 0 650 500" id="viz"></svg>
+      </div>
+      <div id="right">
+        <div id="controls">
+          <h2>controls</h2>
+          <div id="slider-div">
+            <label for="date-slider">filter by date: &nbsp;1900 - </label><span id="slider-value">present</span>
+            <input type="range" id="date-slider" min="1900" max="2020" value="2020" />
+          </div>  
+          <input type="checkbox" id="name-visibility" value="name">
+          <label for="name-visibility">hide names</label>
+          <br>
+          <input type="checkbox" id="relations-visibility" value="relation">
+          <label for="relations-visibility">show relationship types</label>
+          <br>
+          <p id="profession-listener"><span>[+] </span>highlight professions</p>
+          <div id="professions-menu" style="display:none">
+            <input type="checkbox" class="professions" id="acting" value="actor">
+            <label for="acting">acting</label>
+            <br>
+            <input type="checkbox" class="professions" id="producing" value="producer">
+            <label for="producing">producing</label>
+            <br>
+            <input type="checkbox" class="professions" id="directing" value="director">
+            <label for="directing">directing</label>
+            <br>
+            <input type="checkbox" class="professions" id="politics" value="politician">
+            <label for="politics">politics</label>
+            <br>
+            <input type="checkbox" class="professions" id="business" value="business">
+            <label for="business">business</label>
+          </div>
+        </div>
+        <div id="legend-box">
+          <h3 id="legend-heading" style="visibility:hidden">legend</h3>
+          <svg viewBox="0 0 200 200" max-width="100%" max-height="100%" id="legend"></svg>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
